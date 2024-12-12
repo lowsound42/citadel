@@ -44,6 +44,11 @@ p {
 }
 
 .greeting {
-  width: 100%;
+  margin-top: 2rem;
+  width: 80%;
   align-self: center;
+}
+
+.greeting > p {
+  padding: 1rem;
 }
