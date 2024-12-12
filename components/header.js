@@ -1,25 +1,58 @@
-class Header extends HTMLElement {
-  static observedAttributes = ['color', 'size']
+const headerTemplate = document.createElement('template')
 
+headerTemplate.innerHTML = `
+  <style>
+    nav {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(48, 45, 47, 0.63);
+      width: 100vw;
+      font-family: MulishVariable;
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    ul li {
+      list-style: none;
+      display: inline;
+    }
+
+    a {
+      font-weight: 700;
+      margin: 0 25px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      padding-bottom: 5px;
+      box-shadow: inset 0 -2px 0 0 #fff;
+    }
+  </style>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Music</a></li>
+        <li><a href="#">Computers</a></li>
+        <li><a href="#">Cycling</a></li>
+      </ul>
+    </nav>
+  </header>
+`
+
+class Header extends HTMLElement {
   constructor() {
     super()
   }
 
   connectedCallback() {
-    console.log('custom element connected')
-  }
-
-  disconnectedCallBack() {
-    console.log('custom element disconnected')
-  }
-
-  adoptedCallback() {
-    console.log('custom element moved from page')
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    console.log(`Attribute ${name} changed`)
+    const shadowRoot = this.attachShadow({ mode: 'closed' })
+    shadowRoot.appendChild(headerTemplate.content)
   }
 }
 
-customElements.define('my-custom-element', MyCustomElement)
+customElements.define('header-element', Header)
