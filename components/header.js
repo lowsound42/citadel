@@ -39,7 +39,7 @@ headerTemplate.innerHTML = `
         <li><a href="#">Music</a></li>
         <li><a href="#">Computers</a></li>
         <li><a href="#">Cycling</a></li>
-        <li><a href="/easter.html">The Real World</a></li>
+        <li><a href="/easter">The Real World</a></li>
       </ul>
     </nav>
   </header>
